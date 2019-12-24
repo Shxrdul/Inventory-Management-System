@@ -6,8 +6,9 @@ PHP AJAX
 BOOTSTRAP
 
 Requirements:
-Netbeans IDE 11.2 or Above
-Apache Tomcat 9.0 or Above
+Netbeans IDE 11.2+ |
+Apache Tomcat 9.0 |
+SqlDeveloper 
 
 Steps to host website using XAMPP:
 1. Open Project folder from Netbeans IDE
