@@ -2,6 +2,7 @@
 
 Project based on:
 HTML CSS JS
+SERVLETS JSP
 PHP AJAX
 BOOTSTRAP
 
