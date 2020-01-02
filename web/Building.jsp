@@ -15,7 +15,7 @@
             <div class="container"> 
                 <div class="d-flex justify-content-center py-5"> 
                     <div class="col-sm-6 col-lg-12 text-center my-3">
-                        <h1 class="font-weight-bolder align-self-center mx-1">DEFINE BUILDING</h1>	
+                        <h1 class="align-self-center mx-1">DEFINE BUILDING</h1>	
                     </div>		
                 </div>
             </div>
@@ -25,7 +25,8 @@
     <div class="container">
         <div class="row px-3 justify-content-center">
             <div class="col-3 my-3">
-                <input type="text" name="floors" id='value' class="form-control form-control-lg" placeholder="No. of Floors" required>
+                <h6>No. of Floors</h6>
+                <input type="text" name="floors" id='value' class="form-control form-control-lg" required>
             </div>
             <div class="col-1 my-auto">
                 <button type="button" id='btn1' class="btn msg-btn">Next</button>

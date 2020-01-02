@@ -19,7 +19,7 @@
             <div class="container"> 
                 <div class="d-flex justify-content-center py-5"> 
                     <div class="col-sm-6 col-lg-12 text-center my-3">
-                        <h1 class="font-weight-bolder align-self-center mx-1">ADD ASSET</h1>	
+                        <h1 class="align-self-center mx-1">ADD ASSET</h1>	
                     </div>		
                 </div>
             </div>
@@ -29,6 +29,7 @@
             <div class="container">
                 <div class="row px-3 justify-content-center">
                     <div class="col-3 my-3">
+                        <h6>PO Serial</h6>
                         <input type="text" name="poser" id="poser" class="form-control form-control-lg" placeholder="PO Serial" required>
                     </div>
 <!--                    <div class="col-3 my-auto">
@@ -36,6 +37,7 @@
                     </div>-->
 
                     <div class="col-3 my-3">
+                        <h6>Asset</h6>
                         <select class="form-control" name="assetList" id='assetList'>
                             <option value="" disabled selected>Select Asset</option>
                             <%
@@ -59,8 +61,8 @@
                     </div>
                 </div>
                 <div class="row px-3 justify-content-center">
-                        
                     <div class="col-3 my-auto">
+                         <h6>Category</h6>
                          <select class="form-control" name="catList" id='catList'>
                             <option value="" disabled selected>Select Category</option>
                             <option value="capital">Capital</option>
@@ -70,29 +72,70 @@
                     </div>
 
                     <div class="col-3 my-3">
-                        <input type="text" name="make" id="make" class="form-control form-control-lg" placeholder="Make" required>
+                        <h6>make</h6>
+                        <input type="text" name="make" id="make" class="form-control form-control-lg" required>
                     </div>
                 </div>
                 <div class="row px-3 justify-content-center">
                     <div class="col-3 my-auto">
-                         <input type="text" name="model" id="model" class="form-control form-control-lg" placeholder="Model" required>
+                        <h6>Model</h6>
+                         <input type="text" name="model" id="model" class="form-control form-control-lg" required>
                     </div>
 
                     <div class="col-3 my-3">
-                        <input type="text" name="quantity" id="quantity" class="form-control form-control-lg" placeholder="Quantity" required>
+                        <h6>Quantity</h6>
+                        <input type="text" name="quantity" id="quantity" class="form-control form-control-lg" required>
                     </div>
                 </div>
                 <div class="row px-3 justify-content-center">
                     <div class="col-3 my-auto">
-                         <input type="text" name="vendor" id="vendor" class="form-control form-control-lg" placeholder="Vendor" required>
+                        <h6>Vendor</h6>
+                         <!--<input type="text" name="vendor" id="vendor" class="form-control form-control-lg" required>-->
+                         
+                        <select class="form-control" name="vendor" id='vendor' required>
+                        <option value="" disabled selected>Select Vendor</option>
+                         <%
+                                try{
+                                    Class.forName("oracle.jdbc.driver.OracleDriver");
+                                    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","1234");
+                                    PreparedStatement ps = con.prepareStatement("select * from vendor");
+                                    ResultSet rs = ps.executeQuery();
+                            %>
+                            <%  while(rs.next()){ %>
+                            <option value="<%= rs.getString("name")%>"><%= rs.getString("name")%></option>
+                            <% } %>
+                            <%
+                                }
+                                catch(Exception e)
+                                {
+                                     out.println(e);
+                                }
+                            %>
+                            </select>   
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
                     </div>
                     <div class="col-3 my-3">
+                        <h6>Warranty</h6>
                         <select class="form-control" name="warranty" id='warranty'>
-                            <option value="" disabled selected>Status?</option>
+                            <option value="" disabled selected>Status</option>
                             <option value="In Warranty">In Warranty</option>
                             <option value="In AMC">In AMC</option>
                             <option value="Out of Warranty">Out of Warranty</option>
-                            <option value="Out of Warranty">N/A</option>
+                            <option value="N/A">N/A</option>
                         </select>
                     </div>
 <!--                    <div class="col-3 my-auto">

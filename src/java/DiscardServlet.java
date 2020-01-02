@@ -52,12 +52,8 @@ public class DiscardServlet extends HttpServlet {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","1234");
-//            PreparedStatement ps = con.prepareStatement("select * from poasset where poid=?");
-//            ps.setString(1,poid);
-//            ResultSet rs = ps.executeQuery();
-//            rs.next();
-//            String poser = rs.getString("poser");
-//            String assetid = rs.getString("assetid");
+
+
             
 //            PreparedStatement cs = con.prepareStatement("select locid from location where locname ='Storage'");
 //            ResultSet rcs = cs.executeQuery();
@@ -136,7 +132,12 @@ public class DiscardServlet extends HttpServlet {
                 cs.executeUpdate();
                 
                 }
-    
+            
+            PreparedStatement zs = con.prepareStatement("update poasset set discarded = discarded+? where poid=? and serialno=?");
+            zs.setString(1,quantity);
+            zs.setString(2,poid);
+            zs.setString(3,serialid);
+            zs.executeUpdate();
             
             
             

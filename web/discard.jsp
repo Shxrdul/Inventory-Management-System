@@ -19,7 +19,7 @@
             <div class="container"> 
                 <div class="d-flex justify-content-center py-5"> 
                     <div class="col-sm-6 col-lg-12 text-center my-3">
-                        <h1 class="font-weight-bolder align-self-center mx-1">DISCARD ASSET</h1>	
+                        <h1 class="align-self-center mx-1">DISCARD ASSET</h1>	
                     </div>		
                 </div>
             </div>
@@ -29,6 +29,7 @@
     <div class="container">
         <div class="row px-3 justify-content-center">
             <div class="col-3 my-3">
+                <h6>Asset</h6>
                 <select class="form-control" name="assetList" id="assetList" required>
                     <option value="" disabled selected>Select Asset</option>
                     <%
@@ -69,7 +70,8 @@
         
         <div class="row px-3 justify-content-center">   
             <div class="col-4 my-3" id="quantityDiv">
-                <input type="text" name="quantity" id='quantity' class="form-control form-control-lg" placeholder="Quantity" required>
+                <h6>Quantity</h6>
+                <input type="text" name="quantity" id='quantity' class="form-control form-control-lg" required>
             </div>
         </div>
         <div class="row px-3 justify-content-center">

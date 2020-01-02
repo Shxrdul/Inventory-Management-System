@@ -15,7 +15,7 @@
             <div class="container"> 
                 <div class="d-flex justify-content-center py-5"> 
                     <div class="col-sm-6 col-lg-12 text-center my-3">
-                        <h1 class="font-weight-bolder align-self-center mx-1">LOGIN</h1>	
+                        <h1 class="align-self-center mx-1">LOGIN</h1>	
                     </div>		
                 </div>
             </div>
@@ -32,11 +32,13 @@
                 <form action="login" method="post">
                     <div class="row px-3">
                         <div class="col-6 mx-auto my-3">
-                            <input type="text" id="name" name="username" placeholder="Username" class="form-control form-control-lg" required>
+                            <h6>Username</h6>
+                            <input type="text" id="name" name="username" class="form-control form-control-lg" required>
                         </div>
                     </div>
                         <div class="col-6 mx-auto my-3">
-                            <input type="password" id="pass" name="userpass" placeholder="Password" class="form-control form-control-lg" required>
+                            <h6>Password</h6>
+                            <input type="password" id="pass" name="userpass" class="form-control form-control-lg" required>
                         </div>
                     </div>
                     <div class="row">

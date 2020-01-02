@@ -78,7 +78,7 @@ body{
 	clip-path: polygon(0 0,100% 0,100% 95%,50% 100%,0 95%);
 }
 .height-max{
-	min-height: 50vh;
+	min-height: 55vh;
 	/*background:url('../img/headerBcg.jpg');
 	background-position: center;
 	background-size: cover;

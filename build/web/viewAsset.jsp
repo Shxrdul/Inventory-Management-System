@@ -17,7 +17,7 @@
             <div class="container"> 
                 <div class="d-flex justify-content-center py-5"> 
                     <div class="col-sm-6 col-lg-12 text-center my-3">
-                        <h1 class="font-weight-bolder align-self-center mx-1">VIEW ASSETS</h1>	
+                        <h1 class="align-self-center mx-1">VIEW ASSETS</h1>	
                     </div>		
                 </div>
             </div>
@@ -30,9 +30,11 @@
                             <th>PO ID</th>
                             <th>PO SERIAL</th>
                             <th>ASSET</th>
+                            <th>SERIAL NO.</th>
                             <th>MAKE</th>
                             <th>MODEL</th>
                             <th>QUANTITY</th>
+                            <th>DISCARDED</th>
                             <th>VENDOR</th>
                             <th>CATEGORY</th>
                             <th>WARRANTY</th>
@@ -60,10 +62,12 @@
                         %>
                             <td><%= rs.getString("poid")%></td>
                             <td><%= rs.getString("poser")%></td>
-                            <td><%= rs.getString("assetid")%> - <%= rds.getString("name")%></td>
+                            <td><%= rds.getString("name")%></td>
+                            <td><%= rs.getString("serialno")%></td>  
                             <td><%= rs.getString("make")%></td>
                             <td><%= rs.getString("model")%></td>
                             <td><%= rs.getString("quantity")%></td>
+                            <td><%= rs.getString("discarded")%></td>
                             <td><%= rs.getString("vendor")%></td>
                             <td><%= rs.getString("category")%></td>
                             <td><%= rs.getString("warstatus")%></td>

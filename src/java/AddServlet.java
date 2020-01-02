@@ -98,7 +98,7 @@ public class AddServlet extends HttpServlet {
             serialid = rns.getString("value");
             }
             
-            PreparedStatement ps=con.prepareStatement("insert into poasset values(?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement ps=con.prepareStatement("insert into poasset values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1,id);
             ps.setString(2,poser);
             ps.setString(3,asset);
@@ -111,6 +111,7 @@ public class AddServlet extends HttpServlet {
             ps.setString(10,startdate);
             ps.setString(11,enddate);
             ps.setString(12,serialid);
+            ps.setString(13,"0");
             ps.executeUpdate();
             
             
@@ -138,17 +139,12 @@ public class AddServlet extends HttpServlet {
             
 
             RequestDispatcher rd=request.getRequestDispatcher("Admin.jsp");
-            rd.include(request,response);
-            out.println("<div class=\"container\">");
-            out.println("<div class=\"row\">");
-            out.println("<div class=\"col my-3 text-center\">");
-            out.println("<h6 class=\"\" id=\"executed\">*New Asset Recorded</h6>");
-            out.println("</div>");
-            out.println("</div>");
-            out.println("</div>");   
+            rd.include(request,response); 
                 
-                
-                
+            out.println("    <script>\n" +
+            "        document.getElementById(\"executed\").innerHTML=\"*Asset Added\";\n" +
+            "    </script>");    
+
                 
                 
                 
@@ -178,18 +174,9 @@ public class AddServlet extends HttpServlet {
             id = rcs.getString("value");
             }
             
-            PreparedStatement ns = con.prepareStatement("select value from master where attribute ='runserialid'");
-            ResultSet rns = ns.executeQuery();
-            PreparedStatement ninc = con.prepareStatement("update master set value=value+1 where attribute='runserialid'");
-            ninc.executeUpdate();
-            String serialid=null;
-            if(rns.next()){
-            serialid = rns.getString("value");
-            }
             
             
-            
-            PreparedStatement ps=con.prepareStatement("insert into poasset values(?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement ps=con.prepareStatement("insert into poasset values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1,id);
             ps.setString(2,poser);
             ps.setString(3,asset);
@@ -201,7 +188,8 @@ public class AddServlet extends HttpServlet {
             ps.setString(9,warranty);
             ps.setString(10,startdate);
             ps.setString(11,enddate);
-            ps.setString(12,serialid);
+            ps.setString(12,"N/A");
+            ps.setString(13,"0");
             ps.executeUpdate();
             
             

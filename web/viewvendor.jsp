@@ -5,41 +5,37 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>VIEW ASSSET</title>
+        <title>VIENDOR DETAILS</title>
          <!--Bootstrap CSS-->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!--main CSS-->
         <link rel="stylesheet" href="css/main.css"> 
         <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
         <header class="header" id="header">
             <div class="container"> 
                 <div class="d-flex justify-content-center py-5"> 
                     <div class="col-sm-6 col-lg-12 text-center my-3">
-                        <h1 class="align-self-center mx-1">VIEW ASSETS</h1>	
+                        <h1 class="align-self-center mx-1">VENDOR DETAILS</h1>	
                     </div>		
                 </div>
             </div>
         </header>
-        <div class="p-4 height-max">
-            <div class="row justify-content-center my-4">
-                <table id="dtBasicExample" class="table table-hover table-bordered justify-content-center" cellspacing="0">
+        <div class="message p-4 height-max">
+            <div class="container">
+                <table id="dtBasicExample" class="table table-hover table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>PO ID</th>
-                            <th>PO SERIAL</th>
-                            <th>ASSET</th>
-                            <th>SERIAL NO.</th>
-                            <th>MAKE</th>
-                            <th>MODEL</th>
-                            <th>QUANTITY</th>
-                            <th>DISCARDED</th>
-                            <th>VENDOR</th>
-                            <th>CATEGORY</th>
-                            <th>WARRANTY</th>
-                            <th>START DATE</th>
-                            <th>END DATE</th>        
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>ADDRESS</th>
+                            <th>CONTACT</th>
+                            <th>EMAIL</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,32 +43,19 @@
                             try{
                                 Class.forName("oracle.jdbc.driver.OracleDriver");
                                 Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","1234");
-                                PreparedStatement ps = con.prepareStatement("select * from poasset");
+                                PreparedStatement ps = con.prepareStatement("select * from vendor");
                                 ResultSet rs = ps.executeQuery();
                                 while(rs.next()){ 
-//                                PreparedStatement cs = con.prepareStatement("select locname from location where locid="+rs.getString("locid"));
+//                                PreparedStatement cs = con.prepareStatement("select count(*) as cnt from location where floorno="+rs.getString("floorno"));
 //                                ResultSet rcs = cs.executeQuery();
 //                                rcs.next(); 
-                                PreparedStatement ds = con.prepareStatement("select name from master_asset where id="+rs.getString("assetid"));
-                                ResultSet rds = ds.executeQuery();
-                                rds.next();
-//                                PreparedStatement xs = con.prepareStatement("select poname from poasset where poid="+rs.getString("poid"));
-//                                ResultSet rxs = xs.executeQuery();
-//                                rxs.next();
                         %>
-                            <td><%= rs.getString("poid")%></td>
-                            <td><%= rs.getString("poser")%></td>
-                            <td><%= rds.getString("name")%></td>
-                            <td><%= rs.getString("serialno")%></td>  
-                            <td><%= rs.getString("make")%></td>
-                            <td><%= rs.getString("model")%></td>
-                            <td><%= rs.getString("quantity")%></td>
-                            <td><%= rs.getString("discarded")%></td>
-                            <td><%= rs.getString("vendor")%></td>
-                            <td><%= rs.getString("category")%></td>
-                            <td><%= rs.getString("warstatus")%></td>
-                            <td><%= rs.getString("startdate")%></td>
-                            <td><%= rs.getString("enddate")%></td>                           
+                        <tr>
+                            <td><%= rs.getString("id")%></td> 
+                            <td><%= rs.getString("name")%></td> 
+                            <td><%= rs.getString("address")%></td>
+                            <td><%= rs.getString("contact")%></td>
+                            <td><%= rs.getString("email")%></td>
                         </tr>
                         <%       } 
                             }
@@ -83,6 +66,7 @@
                         %>  
                     </tbody>
                 </table>
+                
             </div>
         </div>
         <footer class="footer py-3">
@@ -100,6 +84,7 @@
                 $('#dtBasicExample').DataTable();
                 $('.dataTables_length').addClass('bs-select');
             });
+            
         </script>
     </body>
 </html>

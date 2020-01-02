@@ -21,7 +21,7 @@
             <div class="container"> 
                 <div class="d-flex justify-content-center py-5"> 
                     <div class="col-sm-6 col-lg-12 text-center my-3">
-                        <h1 class="font-weight-bolder align-self-center mx-1">VIEW BUILDING</h1>	
+                        <h1 class="align-self-center mx-1">VIEW BUILDING</h1>	
                     </div>		
                 </div>
             </div>

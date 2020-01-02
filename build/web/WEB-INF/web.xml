@@ -36,6 +36,10 @@
         <servlet-name>MoveIntServlet</servlet-name>
         <servlet-class>MoveIntServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VendorServlet</servlet-name>
+        <servlet-class>VendorServlet</servlet-class>
+    </servlet>
     
     
     <servlet-mapping>
@@ -73,6 +77,10 @@
     <servlet-mapping>
         <servlet-name>MoveIntServlet</servlet-name>
         <url-pattern>/moveInt</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendorServlet</servlet-name>
+        <url-pattern>/vendor</url-pattern>
     </servlet-mapping>
     
     <welcome-file-list>
